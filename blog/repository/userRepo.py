@@ -31,7 +31,7 @@ def update(id:int, request : schemas.User, db):
 
     user.update(data)
     db.commit()
-    return "Updation Successful"
+    return user.first()
 
 
 def delete(id:int, db: Session):

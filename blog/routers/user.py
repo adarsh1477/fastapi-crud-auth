@@ -25,7 +25,7 @@ def get_user(id:int, db:Session = Depends(get_db), current_user: schemas.User = 
     return userRepo.show_specific(id,db)
 
 
-@router.put('/{id}')
+@router.put('/{id}',response_model=schemas.ShowUsers)
 def update_user(id,request:schemas.User, db:Session = Depends(get_db), current_user: schemas.User = Depends(oauth2.get_current_user)):
     return userRepo.update(id,request,db)
 
